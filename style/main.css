@@ -34,4 +34,31 @@ body {
     background-position: 0% 50%;
   }
 }
+
+.btn-default label {
+  background-color: #ffffff;
+  border-radius: 50%;
+  gap: 2;
+}
+
+.btn-default label img {
+  max-width: 5rem;
+  max-height: 5rem;
+}
+
+.btn-default input[type="radio"] {
+  opacity: 0;
+  z-index: 100;
+}
+
+.btn-default input[type="radio"]:checked + label {
+  cursor: pointer;
+  background: #F08080;
+  border-radius: 50%;
+}
+
+.btn-default input[type="radio"]:checked + label img {
+  max-width: 6rem;
+  max-height: 6rem;
+}
 /*# sourceMappingURL=main.css.map */

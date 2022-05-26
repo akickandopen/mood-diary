@@ -26,29 +26,81 @@
         </button>
     </header>
 
-    <div class="container text-center">
-        <h1>How are you feeling today?</h1>
-    </div>
+    <main class="container">
+        <div class="container text-center">
+            <h1>How are you feeling today?</h1>
+        </div>
 
-    <div class="container d-flex justify-content-evenly">
-        <button id="btnJoy" class="border-0" style="border-radius: 50%; width:10%;">
-            <img src="images/face-joy.png" class="img-fluid" alt="Happy face">
-        </button>
-        <button id="btnSad" class="border-0" style="border-radius: 50%; width:10%;">
-            <img src="images/face-sad.png" class="img-fluid" alt="Sad face">
-        </button>
-        <button id="btnStress" class="border-0" style="border-radius: 50%; width:10%;">
-            <img src="images/face-stressed.png" class="img-fluid" alt="Stressed face">
-        </button>
-        <button id="btnBored" class="border-0" style="border-radius: 50%; width:10%;">
-            <img src="images/face-bored.png" class="img-fluid" alt="Bored face">
-        </button>
-        <button id="btnTired" class="border-0" style="border-radius: 50%; width:10%;">
-            <img src="images/face-tired.png" class="img-fluid" alt="Tired face">
-        </button>
-    </div>
+        <div class="container d-flex align-items-center justify-content-evenly">
+            <div class="position-relative btn-default">
+                <input type="radio" value="Happy" id="btnJoy" onclick="myFunction(this)" name="mood-selected" class="position-absolute"/>
+                <label class="" for="btnJoy">
+                    <img src="images/face-joy.png" alt="">
+                </label>
+            </div>
+            <div class="position-relative btn-default">
+                <input type="radio" value="Sad" id="btnSad" onclick="myFunction(this)" name="mood-selected" class="position-absolute"/>
+                <label class="" for="btnSad">
+                    <img src="images/face-sad.png" alt="">
+                </label>
+            </div>
+            <div class="position-relative btn-default">
+                <input type="radio" value="Stressed" id="btnStress" onclick="myFunction(this)" name="mood-selected" class="position-absolute"/>
+                <label class="" for="btnStress">
+                    <img src="images/face-stressed.png" alt="">
+                </label>
+            </div>
+            <div class="position-relative btn-default">
+                <input type="radio" value="Bored" id="btnBored" onclick="myFunction(this)" name="mood-selected" class="position-absolute"/>
+                <label class="" for="btnBored">
+                    <img src="images/face-bored.png" alt="">
+                </label>
+            </div>
+            <div class="position-relative btn-default">
+                <input type="radio" value="Tired" id="btnTired" onclick="myFunction(this)" name="mood-selected" class="position-absolute"/>
+                <label class="" for="btnTired">
+                    <img src="images/face-tired.png"" alt="">
+                </label>
+            </div>
+            <!-- <button id="btnJoy" onclick="myFunction(this)" class="btn-default border-0">
+                <img src="images/face-joy.png" class="img-fluid" alt="Happy face">
+            </button>
+            <button id="btnTired" onclick="myFunction(this)" class="btn-default border-0">
+                <img src="images/face-tired.png" class="img-fluid" alt="Tired face">
+            </button> -->
+        </div>
 
-    <!-- Modal -->
+        <div id="options" class="container w-25 text-center mt-4" style="display:none;">
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#writeEntryModal">
+                <p class="m-0 p-0">Write an Entry</p>
+            </button>
+            <button class="btn btn-outline-dark">
+                <p class="m-0 p-0">Continue</p>
+            </button>
+        </div>
+    </main>
+
+    <!-- Write Entry Modal -->
+    <div class="modal fade" id="writeEntryModal" tabindex="-1" aria-labelledby="writeEntryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="writeEntryModalLabel">Write an entry</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save Entry</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Information Modal -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">

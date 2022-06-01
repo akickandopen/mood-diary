@@ -1,7 +1,7 @@
 function getJoke() {
     let search_input = document.getElementById("searchJoke").value;
     let insert_joke = document.getElementById("insertJoke");
-    let api_key = "1cbff9ca97ee48a8926fb9ed6effbf1f";
+    let api_key = ""; // Your api key
 
     let url = `https://api.humorapi.com/jokes/search?number=1&keywords=${search_input}&max-length=250&exclude-tags=nsfw,dark&api-key=${api_key}`;
 
@@ -64,7 +64,7 @@ async function renderDog(mood){
 }
 
 async function getRandomGIF(){
-    let api_key = "8574c95d949f4bfcbfd507e384e8ce9d";
+    let api_key = ""; // Your api key
     let url = `https://api.giphy.com/v1/gifs/random?tag=breathing%20exercise%20calm&rating=g&api_key=${api_key}`;
 
     try {

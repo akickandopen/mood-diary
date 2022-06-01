@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Diary</title>
+
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/background-anim.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+
+    <main>
+        <div class="get-result">
+            <div class="d-flex">
+                <div class="user-options">
+                    <h1>Save your daily entry!</h1>
+                    <button type="button" class="save-img-btn mb-3" onclick="createImage()">Save as image</button>
+                    <button type="button" class="back-home-btn" onclick="location.href='index.html'">Back to home</button>
+                </div>
+                <div class="daily-entry">
+                    <div class="">
+                        <p id="date" class="col mb-3"></p>
+                        <h5 id="title" class="mb-3"></h5>
+                        <p id="body"></p>
+                    </div>
+                    <div class="row">
+                        <p id="mood" class="col fw-bold"></p>
+                        <p class="col text-end">Mood Diary 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let txtTitle = document.getElementById("title");
+        let txtBody = document.getElementById("body");
+        let txtMood = document.getElementById("mood");
+        let txtDate = document.getElementById("date");
+
+        const title = localStorage.getItem("title");
+        const body = localStorage.getItem("body");
+        const mood = localStorage.getItem("mood");
+        const date = new Date();
+        date.getFullYear();
+        date.getMonth();
+        date.getDay();
+
+        txtTitle.innerHTML = title;
+        txtBody.innerHTML = body;
+        txtMood.innerHTML = "Feeling: " + mood;
+        txtDate.innerHTML = date.toDateString();
+
+        console.log(title);
+        console.log(body);
+        console.log(mood);
+
+    /*    async function createImage(){
+            const json = {
+                html: `
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+                <div class="daily-entry">
+                    <div class="">
+                        <p id="date" class="col mb-3">${date.toDateString()}</p>
+                        <h5 id="title" class="mb-3">${title}</h5>
+                        <p id="body">${body}</p>
+                    </div>
+                    <div class="row">
+                        <p id="mood" class="col fw-bold">${mood}</p>
+                        <p class="col text-end">Mood Diary 2022</p>
+                    </div>
+                </div>
+                `,
+                css: `
+                body { 
+                    background-color: transparent;
+                }
+                .daily-entry {
+                    width: 629px;
+                    height: 336px;
+                    background: #FFFBF6;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 50px;
+                    padding: 30px;
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: space-between;
+                    font-family: "Poppins", sans-serif;
+                }
+                `,
+                google_fonts: "Poppins"
+            };
+
+            const username = "db67c109-c85c-4600-aebf-dad65464fe81";
+            const password = "3144decb-066e-47e6-9dda-7b6a9a2526d9";
+
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(json),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + btoa(username + ":" + password)
+                }
+            }
+
+            fetch('https://hcti.io/v1/image', options)
+                .then(res => {
+                    if (res.ok) {
+                        return res.json();
+                    } else {
+                        return Promise.reject(res.status);
+                    }
+                })
+                .then(data => {
+                    // Image URL is available here
+                    console.log(data.url);
+                    downloadImage(data.url);
+                })
+                .catch(err => console.error(err));
+        }
+
+        async function downloadImage(imageSrc) {
+            const image = await fetch(imageSrc)
+            const imageBlog = await image.blob()
+            const imageURL = URL.createObjectURL(imageBlog)
+
+            const link = document.createElement('a')
+            link.href = imageURL
+            link.download = 'mooddiary'
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+        }
+        */
+
+    </script>
+</body>
+
+</html>

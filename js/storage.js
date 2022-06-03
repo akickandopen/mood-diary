@@ -1,10 +1,24 @@
 function saveMood(val) {
     let link = document.getElementById("continue");
+    let img = document.getElementById("face");
     let mood = val.value;
 
+    // Change image depending on chosen mood
+    if(mood == "happy"){
+        img.src = "images/face-joy.png";
+    } else if(mood == "sad"){
+        img.src = "images/face-sad.png";
+    } else if(mood == "stressed"){
+        img.src = "images/face-stressed.png";
+    } else if(mood == "bored"){
+        img.src = "images/face-bored.png";
+    }
+
+    // Display continue link
     if (link.style.display == "none") {
         link.style.display = "block";
 
+        // Save mood value in local storage 
         localStorage.setItem("mood", mood);
     }
 }

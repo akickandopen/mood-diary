@@ -17,7 +17,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-    <script src="js/app.js"></script>
+    <script src="js/storage.js"></script>
 </head>
 
 <body>
@@ -35,28 +35,8 @@
     </main>
 
     <script>
-        function saveEntry(){
-            let title = document.getElementById('inputTitle').value;
-            let body = document.getElementById('inputBody').value;
-
-            let save = document.getElementById('save');
-            let next = document.getElementById('next');
-            
-            if (title == '' && body == ''){
-                alert("Add an entry.");
-            } else {
-                localStorage.setItem("title", title);
-                localStorage.setItem("body", body);
-
-                if(next.style.display == "none"){
-                    next.style.display = "block";
-                    save.style.display = "none";
-                }
-            }
-        }
-
         function linkNext(){
-            window.location.href="mood-result.html";
+            window.location.href="mood-display.html";
         }
     </script>
 </body>

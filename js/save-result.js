@@ -63,8 +63,8 @@ async function createImage(){
         google_fonts: "Poppins"
     };
 
-    const user_id = ""; // Your user id
-    const api_key = ""; // Your api key
+    const user_id = "db67c109-c85c-4600-aebf-dad65464fe81"; // Your user id
+    const api_key = "3144decb-066e-47e6-9dda-7b6a9a2526d9"; // Your api key
 
     const options = {
         method: 'POST',
@@ -93,9 +93,9 @@ async function createImage(){
 }
 
 async function downloadImage(imageSrc) {
-    const image = await fetch(imageSrc); // fetch image url
-    const imageBlob = await image.blob();
-    const imageURL = URL.createObjectURL(imageBlob);
+    const image = await fetch(imageSrc); // fetch image
+    const imageBlob = await image.blob(); // image to blob
+    const imageURL = URL.createObjectURL(imageBlob); // create an object url for image
 
     const link = document.createElement('a');
     link.href = imageURL;

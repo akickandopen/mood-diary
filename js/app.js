@@ -1,7 +1,7 @@
 function getJoke() {
     let search_input = document.getElementById("searchJoke").value;
     let insert_joke = document.getElementById("insertJoke");
-    let api_key = ""; // Your api key
+    let api_key = "1cbff9ca97ee48a8926fb9ed6effbf1f"; // Your api key
 
     let url = `https://api.humorapi.com/jokes/search?number=1&keywords=${search_input}&max-length=250&exclude-tags=nsfw,dark&api-key=${api_key}`;
 
@@ -64,8 +64,8 @@ async function renderDog(mood){
 }
 
 async function getRandomGIF(){
-    let api_key = ""; // Your api key
-    let url = `https://api.giphy.com/v1/gifs/random?tag=breathing%20exercise%20calm&rating=g&api_key=${api_key}`;
+    let api_key = "8574c95d949f4bfcbfd507e384e8ce9d"; // Your api key
+    let url = `https://api.giphy.com/v1/gifs/random?tag=breathing%20calm&rating=g&api_key=${api_key}`;
 
     try {
         let res = await fetch(url);
@@ -95,9 +95,9 @@ async function renderRandomGIF(mood){
     container.innerHTML = html;
 }
 
-function embedGame(){
+function embedGame(mood){
     let html = "";
-    let htmlSegment = `<h1>Feeling: </h1>
+    let htmlSegment = `<h1>Feeling: ${mood}</h1>
     <p>here's something you can play while you think of something else to do</p>
 
     <iframe width="560" height="315" allow="fullscreen; autoplay; encrypted-media" src="https://games.construct.net/633/latest" 
@@ -122,7 +122,7 @@ function getMood(){
     } else if(mood == "stressed"){
         renderRandomGIF(mood);
     } else if(mood == "bored"){
-        embedGame();
+        embedGame(mood);
     }
 }
 
